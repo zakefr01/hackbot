@@ -1,46 +1,139 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi Diseño</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Es hora de ser rico</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f0f0;
-      color: #333;
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: black;
+      color: white;
+    }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4rem;
+      background-color: black;
+    }
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+    .hero-text p {
+      margin: 1rem 0;
+      font-size: 1.2rem;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+    .hero-buttons a {
+      text-decoration: none;
+      font-weight: bold;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+    }
+    .btn-green {
+      background-color: #D0FF00;
+      color: black;
+    }
+    .btn-white {
+      background-color: white;
+      color: black;
+    }
+    .hero-img {
+      flex: 1;
+      min-width: 300px;
       text-align: center;
     }
-    h1 {
-      font-size: 3rem;
-      margin-top: 20px;
-    }
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 40px;
-    }
-    img {
-      max-width: 90%;
+    .hero-img img {
+      max-width: 100%;
       height: auto;
-      border-radius: 8px;
-      margin-bottom: 40px;
     }
-    footer {
-      font-size: 1rem;
-      color: #777;
-      margin-top: 40px;
+
+    .success-stories {
+      background-color: #D0FF00;
+      padding: 3rem 2rem;
+      color: black;
+      text-align: center;
+    }
+    .success-stories h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .story-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .story {
+      max-width: 200px;
+      text-align: center;
+    }
+    .story img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .story p {
+      margin-top: 0.5rem;
+      font-weight: bold;
+    }
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Bienvenido a Mi Diseño</h1>
-  <p>Este es el diseño que creé usando Canva.</p>
-  <!-- Замените 'your-design.png' на имя вашего загруженного файла -->
-  <img src="images/your-design.png" alt="Mi diseño desde Canva">
-  <footer>
-    <p>&copy; 2025 Mi Proyecto. Todos los derechos reservados.</p>
-  </footer>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>ES HORA DE<br>SER RICO</h1>
+      <p>SI CIERRA ESTA PÁGINA, ¡PERDERÁ LA OPORTUNIDAD!<br>100% GRATIS</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn-green">CONSIGUE UN BOT</a>
+        <a href="#" class="btn-white">REGISTRO</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="1.png" alt="Entrenamiento">
+    </div>
+  </section>
+
+  <section class="success-stories">
+    <h2>HISTORIAS DE ÉXITO</h2>
+    <div class="story-grid">
+      <div class="story">
+        <img src="2.png" alt="Mateo González">
+        <p>Mateo González</p>
+      </div>
+      <div class="story">
+        <img src="2.png" alt="Sebastián Pérez">
+        <p>Sebastián Pérez</p>
+      </div>
+      <div class="story">
+        <img src="2.png" alt="Diego Rodríguez">
+        <p>Diego Rodríguez</p>
+      </div>
+      <div class="story">
+        <img src="2.png" alt="Fernando López">
+        <p>Fernando López</p>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>
