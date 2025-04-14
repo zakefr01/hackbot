@@ -1,194 +1,134 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Es hora de ser rico</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Game Predictor - Chile</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Space Grotesk', sans-serif;
-      background-color: black;
-      color: white;
+    .console-box {
+      font-family: monospace;
+      background-color: #1a1a1a;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 20px #00ff88;
+      color: #00ff88;
+      height: 250px;
+      overflow-y: auto;
     }
-    .hero {
+    .loading-screen {
+      font-family: monospace;
+      background: #000;
+      color: #00ff88;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      justify-content: space-between;
-      padding: 4rem;
-      background-color: black;
-    }
-    .hero-text {
-      flex: 1;
-      min-width: 300px;
-    }
-    .hero-text h1 {
-      font-size: 3rem;
-      font-weight: bold;
-      line-height: 1.2;
-    }
-    .hero-text p {
-      margin: 1rem 0;
-      font-size: 1.2rem;
-    }
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-    }
-    .hero-buttons a {
-      text-decoration: none;
-      font-weight: bold;
-      padding: 1rem 2rem;
-      border-radius: 5px;
-    }
-    .btn-green {
-      background-color: #D0FF00;
-      color: black;
-    }
-    .btn-white {
-      background-color: white;
-      color: black;
-    }
-    .hero-img {
-      flex: 1;
-      min-width: 300px;
-      text-align: center;
-    }
-    .hero-img img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .success-stories {
-      background-color: #D0FF00;
-      padding: 3rem 2rem;
-      color: black;
-      text-align: center;
-    }
-    .success-stories h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-    }
-    .story-grid {
-      display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 2rem;
-    }
-    .story {
-      max-width: 200px;
-      text-align: center;
-    }
-    .story img {
+      height: 100vh;
+      flex-direction: column;
+      z-index: 50;
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      border-radius: 8px;
     }
-    .story p {
-      margin-top: 0.5rem;
-      font-weight: bold;
-    }
-
-    .reviews {
-      background-color: #111;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-    .reviews h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      color: #D0FF00;
-    }
-    .review-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-    }
-    .review {
-      max-width: 300px;
-      background-color: #222;
-      padding: 1.5rem;
-      border-radius: 10px;
-      text-align: left;
-      color: white;
-    }
-    .review h3 {
-      margin-top: 0;
-      color: #D0FF00;
-    }
-    .review p {
-      font-size: 1rem;
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
+    .hidden-screen {
+      display: none;
     }
   </style>
 </head>
-<body>
+<body class="bg-gray-900 text-white font-sans">
+  <div id="loading" class="loading-screen">
+    <p>Cargando... Por favor espera mientras preparamos tu experiencia.</p>
+  </div>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h1>ES HORA DE<br>SER RICO</h1>
-      <p>SI CIERRA ESTA PÁGINA, ¡PERDERÁ LA OPORTUNIDAD!<br>100% GRATIS</p>
-      <div class="hero-buttons">
-        <a href="https://a.topteamm.online/07KkHO4qf7?utm_campaign=678424714564840" class="btn-green">CONSIGUE UN BOT</a>
-        <a href="https://casaff.top/L?tag=d_4273551m_79155c__[]general[]_d156288_l193475_other&site=4273551&ad=79155&r=registration" class="btn-white">REGISTRO</a>
-      </div>
-    </div>
-    <div class="hero-img">
-      <img src="1.png" alt="Entrenamiento">
-    </div>
-  </section>
+  <div id="mainContent" class="hidden-screen">
+    <header class="w-full bg-gray-800 p-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-green-400">1xBet AI Predictor</h1>
+      <nav class="space-x-4">
+        <a href="#how" class="hover:text-green-400">Cómo Funciona</a>
+        <a href="#games" class="hover:text-green-400">Juegos</a>
+        <a href="#start" class="hover:text-green-400">Empezar</a>
+      </nav>
+    </header>
 
-  <section class="success-stories">
-    <h2>HISTORIAS DE ÉXITO</h2>
-    <div class="story-grid">
-      <div class="story">
-        <img src="mateo.png" alt="Mateo González">
-        <p>Mateo González</p>
+    <section class="min-h-screen flex flex-col items-center justify-center px-4 text-center">
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">Gana Dinero Real con Predicciones AI</h2>
+      <p class="max-w-xl mb-8 text-gray-300">Únete a miles de chilenos que usan nuestra IA para ganar en juegos como Aviator, Mines y Penalty. ¡98% de precisión, predicciones en tiempo real y retiros rápidos!</p>
+      <button id="startButton" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-xl text-lg transition">Comienza a Ganar</button>
+      <div id="errorBox" class="hidden bg-red-600 p-6 rounded-xl max-w-md mx-auto mt-6">
+        <h2 class="text-xl font-bold mb-2">⚠️ Cuenta No Encontrada</h2>
+        <p class="mb-4">Parece que aún no estás registrado. Crea una nueva cuenta en 1xBet y deposita fondos para activar las predicciones.</p>
+        <p class="text-lg mb-4 text-yellow-400">Usa el código promocional especial: <strong>M5CS</strong></p>
+        <a href="https://casaff.top/L?tag=d_4273551m_79155c__[]general[]_d156288_l193475_other&site=4273551&ad=79155&r=registration" target="_blank" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded-lg transition">
+          Regístrate Ahora en 1xBet
+        </a>
       </div>
-      <div class="story">
-        <img src="sebastian.png" alt="Sebastián Pérez">
-        <p>Sebastián Pérez</p>
-      </div>
-      <div class="story">
-        <img src="diego.png" alt="Diego Rodríguez">
-        <p>Diego Rodríguez</p>
-      </div>
-      <div class="story">
-        <img src="fernando.png" alt="Fernando López">
-        <p>Fernando López</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="reviews">
-    <h2>Opiniones sobre el Bot Prediktor</h2>
-    <div class="review-grid">
-      <div class="review">
-        <h3>Mateo González</h3>
-        <p>No podía creerlo al principio, pero el bot realmente funciona. Empecé con poco y en solo unos días ya tenía ganancias. ¡Gracias por esta oportunidad!</p>
+    <section class="bg-gray-800 py-12 px-6 text-center">
+      <h3 class="text-2xl font-bold text-green-400 mb-6">Ganadores de Hoy (CLP)</h3>
+      <div class="grid md:grid-cols-2 gap-4 text-left max-w-4xl mx-auto text-sm text-green-300">
+        <p>👤 ID Usuario: 1218473422 – $2.375.328</p>
+        <p>👤 ID Usuario: 9912384741 – $2.231.900</p>
+        <p>👤 ID Usuario: 3099234822 – $1.384.120</p>
+        <p>👤 ID Usuario: 1187339121 – $1.350.000</p>
+        <p>👤 ID Usuario: 4412900113 – $1.342.850</p>
+        <p>👤 ID Usuario: 8283721091 – $1.228.440</p>
+        <p>👤 ID Usuario: 7751937742 – $1.500.705</p>
+        <p>👤 ID Usuario: 5554921811 – $983.330</p>
+        <p>👤 ID Usuario: 1983238742 – $853.000</p>
+        <p>👤 ID Usuario: 3377749301 – $797.210</p>
       </div>
-      <div class="review">
-        <h3>Sebastián Pérez</h3>
-        <p>He probado muchas formas de ganar dinero online y esta ha sido, sin duda, la más efectiva. El bot hace todo por ti. ¡100% recomendado!</p>
-      </div>
-      <div class="review">
-        <h3>Diego Rodríguez</h3>
-        <p>Lo mejor es que no necesitas experiencia. Solo seguir las instrucciones y dejar que el bot trabaje. Estoy impresionado con los resultados.</p>
-      </div>
-      <div class="review">
-        <h3>Fernando López</h3>
-        <p>¡Por fin encontré algo que realmente cumple lo que promete! Ganancias constantes y sin riesgos absurdos. Este bot es una joya.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
+    <section id="games" class="bg-gray-800 py-12 px-6 text-center">
+      <h3 class="text-2xl font-bold text-green-400 mb-6">Juegos Compatibles</h3>
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-2">🎮 Aviator</h4>
+          <p class="text-gray-300">Predice cuándo retirar antes de que el avión se vaya. Nuestra IA detecta las tendencias de despegue en tiempo real.</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-2">💣 Mines</h4>
+          <p class="text-gray-300">Evita las bombas y gana. Nuestro sistema encuentra rutas de bajo riesgo para máximo beneficio.</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-2">🥅 Penalty</h4>
+          <p class="text-gray-300">Sabe dónde lanzar o atajar. Gana al portero con predicciones basadas en datos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="bg-gray-900 py-12 px-6 text-center">
+      <h3 class="text-2xl font-bold text-green-400 mb-6">Cómo Funciona</h3>
+      <div class="max-w-3xl mx-auto space-y-4 text-gray-300">
+        <p>📡 Nuestra IA analiza datos en vivo y resultados históricos 24/7.</p>
+        <p>💡 Identifica patrones que conducen a victorias constantes.</p>
+        <p>📲 Recibes predicciones en tiempo real que puedes confiar — directo a tu dispositivo.</p>
+      </div>
+    </section>
+
+    <section class="bg-black py-12 px-6 text-center">
+      <h3 class="text-xl font-bold text-green-400 mb-4">[ Consola de Monitoreo ]</h3>
+      <div class="console-box max-w-3xl mx-auto text-left" id="console">
+        <p>[INFO] Servicio de predicción activo ✅</p>
+      </div>
+    </section>
+
+    <footer class="text-center text-gray-500 text-sm py-6">
+      © 2025 AI Predictor. No afiliado con 1xBet. Usa con responsabilidad.
+    </footer>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById("loading").classList.add("hidden-screen");
+      document.getElementById("mainContent").classList.remove("hidden-screen");
+    }, 3000);
+
+    document.getElementById("startButton").addEventListener("click", () => {
+      document.getElementById("errorBox").classList.remove("hidden");
+    });
+  </script>
 </body>
 </html>
